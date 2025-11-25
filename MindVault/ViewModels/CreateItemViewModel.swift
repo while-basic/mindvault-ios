@@ -13,6 +13,7 @@ import Foundation
 import SwiftUI
 import Combine
 import CoreData
+import UIKit
 
 @MainActor
 class CreateItemViewModel: ObservableObject {
@@ -73,6 +74,10 @@ class CreateItemViewModel: ObservableObject {
                 customMessage: customMessage.isEmpty ? nil : customMessage
             )
             
+            // Success haptic feedback
+            let success = UINotificationFeedbackGenerator()
+            success.notificationOccurred(.success)
+            
             isSaving = false
         } catch {
             isSaving = false
@@ -121,6 +126,10 @@ class CreateItemViewModel: ObservableObject {
                 body: "A \(MediaType.url.displayName) item has unlocked.",
                 customMessage: customMessage.isEmpty ? nil : customMessage
             )
+            
+            // Success haptic feedback
+            let success = UINotificationFeedbackGenerator()
+            success.notificationOccurred(.success)
             
             isSaving = false
         } catch {
@@ -171,6 +180,10 @@ class CreateItemViewModel: ObservableObject {
                 customMessage: customMessage.isEmpty ? nil : customMessage
             )
             
+            // Success haptic feedback
+            let success = UINotificationFeedbackGenerator()
+            success.notificationOccurred(.success)
+            
             isSaving = false
         } catch {
             isSaving = false
@@ -213,6 +226,10 @@ class CreateItemViewModel: ObservableObject {
                 body: "A \(MediaType.video.displayName) has unlocked.",
                 customMessage: customMessage.isEmpty ? nil : customMessage
             )
+            
+            // Success haptic feedback
+            let success = UINotificationFeedbackGenerator()
+            success.notificationOccurred(.success)
             
             isSaving = false
         } catch {
@@ -257,6 +274,10 @@ class CreateItemViewModel: ObservableObject {
                 customMessage: customMessage.isEmpty ? nil : customMessage
             )
             
+            // Success haptic feedback
+            let success = UINotificationFeedbackGenerator()
+            success.notificationOccurred(.success)
+            
             isSaving = false
         } catch {
             isSaving = false
@@ -300,6 +321,10 @@ class CreateItemViewModel: ObservableObject {
                 customMessage: customMessage.isEmpty ? nil : customMessage
             )
             
+            // Success haptic feedback
+            let success = UINotificationFeedbackGenerator()
+            success.notificationOccurred(.success)
+            
             isSaving = false
         } catch {
             isSaving = false
@@ -342,6 +367,10 @@ class CreateItemViewModel: ObservableObject {
                 body: "A \(MediaType.code.displayName) has unlocked.",
                 customMessage: customMessage.isEmpty ? nil : customMessage
             )
+            
+            // Success haptic feedback
+            let success = UINotificationFeedbackGenerator()
+            success.notificationOccurred(.success)
             
             isSaving = false
         } catch {

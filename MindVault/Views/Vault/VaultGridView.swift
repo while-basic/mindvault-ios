@@ -13,7 +13,8 @@ import SwiftUI
 import CoreData
 
 struct VaultGridView: View {
-    let items: FetchedResults<TimeLockedItem>
+    let items: [TimeLockedItem]
+    @Environment(\.managedObjectContext) private var viewContext
     
     let columns = [
         GridItem(.adaptive(minimum: 160), spacing: 16)
@@ -24,6 +25,7 @@ struct VaultGridView: View {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(items) { item in
                     LockedItemCard(item: item)
+                        .environment(\.managedObjectContext, viewContext)
                 }
             }
             .padding()

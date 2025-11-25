@@ -17,6 +17,8 @@ struct LockedItemCard: View {
     let item: TimeLockedItem
     @State private var timeRemaining: String = ""
     @State private var isPressed = false
+    @State private var showingEditView = false
+    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
         NavigationLink {
@@ -116,6 +118,16 @@ struct LockedItemCard: View {
         }
         .onReceive(Timer.publish(every: 60, on: .main, in: .common).autoconnect()) { _ in
             updateCountdown()
+        }
+        .contextMenu {
+            Button {
+                showingEditView = true
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+        }
+        .sheet(isPresented: $showingEditView) {
+            EditItemView(item: item, viewContext: viewContext)
         }
     }
     

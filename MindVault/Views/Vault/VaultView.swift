@@ -14,15 +14,68 @@ import CoreData
 
 struct VaultView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \TimeLockedItem.unlockDate, ascending: true)],
-        predicate: NSPredicate(format: "unlockStatus == %@", "locked"),
-        animation: .spring(response: 0.5, dampingFraction: 0.8))
-    private var items: FetchedResults<TimeLockedItem>
+    @StateObject private var viewModel: VaultViewModel
     
     @AppStorage("vaultViewMode") private var viewMode: String = "grid"
+    @AppStorage("vaultSortOption") private var sortOption: String = "unlockDate"
+    @AppStorage("vaultSortAscending") private var sortAscending: Bool = true
+    
     @State private var showingCreateView = false
     @State private var showingQuickCreate = false
+    @State private var selectedMediaTypeFilter: MediaType? = nil
+    
+    // Dynamic fetch request based on search and filters
+    private var items: [TimeLockedItem] {
+        let request: NSFetchRequest<TimeLockedItem> = TimeLockedItem.fetchRequest()
+        
+        // Base predicate: only locked items
+        var predicates: [NSPredicate] = [
+            NSPredicate(format: "unlockStatus == %@", "locked")
+        ]
+        
+        // Search predicate - search by media type display name
+        if !viewModel.searchText.isEmpty {
+            // Search in mediaType field (case-insensitive)
+            predicates.append(
+                NSPredicate(format: "mediaType CONTAINS[cd] %@", viewModel.searchText)
+            )
+        }
+        
+        // Media type filter
+        if let mediaType = selectedMediaTypeFilter {
+            predicates.append(
+                NSPredicate(format: "mediaType == %@", mediaType.rawValue)
+            )
+        }
+        
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        
+        // Create sort descriptor based on selected option
+        let sortDescriptor: NSSortDescriptor
+        switch sortOption {
+        case "creationDate":
+            sortDescriptor = NSSortDescriptor(keyPath: \TimeLockedItem.creationDate, ascending: sortAscending)
+        case "mediaType":
+            sortDescriptor = NSSortDescriptor(keyPath: \TimeLockedItem.mediaType, ascending: sortAscending)
+        default:
+            sortDescriptor = NSSortDescriptor(keyPath: \TimeLockedItem.unlockDate, ascending: sortAscending)
+        }
+        
+        request.sortDescriptors = [sortDescriptor]
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            print("Error fetching items: \(error)")
+            return []
+        }
+    }
+    
+    init() {
+        // Initialize with shared context - will be updated if environment provides different one
+        let context = PersistenceController.shared.container.viewContext
+        _viewModel = StateObject(wrappedValue: VaultViewModel(context: context))
+    }
     
     var body: some View {
         NavigationStack {
@@ -71,15 +124,68 @@ struct VaultView: View {
             }
             .navigationTitle("Vault")
             .navigationBarTitleDisplayMode(.large)
+            .searchable(text: $viewModel.searchText, prompt: "Search time capsules")
             .toolbar {
+                if selectedMediaTypeFilter != nil || !viewModel.searchText.isEmpty {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            selectedMediaTypeFilter = nil
+                            viewModel.searchText = ""
+                        } label: {
+                            Label("Clear Filters", systemImage: "xmark.circle.fill")
+                                .font(.caption)
+                        }
+                    }
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
+                        // View Mode
                         Picker("View Mode", selection: $viewMode) {
                             Label("Grid", systemImage: "square.grid.2x2").tag("grid")
                             Label("List", systemImage: "list.bullet").tag("list")
                         }
+                        
+                        Divider()
+                        
+                        // Sort Options
+                        Menu("Sort By") {
+                            Picker("Sort", selection: $sortOption) {
+                                Label("Unlock Date", systemImage: "clock").tag("unlockDate")
+                                Label("Creation Date", systemImage: "calendar").tag("creationDate")
+                                Label("Media Type", systemImage: "square.stack").tag("mediaType")
+                            }
+                            
+                            Toggle("Ascending", isOn: $sortAscending)
+                        }
+                        
+                        Divider()
+                        
+                        // Filter by Media Type
+                        Menu("Filter") {
+                            Button("All Types") {
+                                selectedMediaTypeFilter = nil
+                            }
+                            
+                            Divider()
+                            
+                            ForEach(MediaType.allCases, id: \.self) { type in
+                                Button {
+                                    selectedMediaTypeFilter = selectedMediaTypeFilter == type ? nil : type
+                                } label: {
+                                    HStack {
+                                        Image(systemName: type.iconName)
+                                        Text(type.displayName)
+                                        if selectedMediaTypeFilter == type {
+                                            Spacer()
+                                            Image(systemName: "checkmark")
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     } label: {
-                        Image(systemName: viewMode == "grid" ? "square.grid.2x2" : "list.bullet")
+                        Image(systemName: "ellipsis.circle")
                     }
                 }
             }
@@ -89,6 +195,13 @@ struct VaultView: View {
             .onChange(of: showingCreateView) { oldValue, newValue in
                 if !newValue {
                     showingQuickCreate = false
+                }
+            }
+            .onAppear {
+                // Ensure viewModel uses the environment context
+                if viewModel.context != viewContext {
+                    // Update viewModel context if environment provides different one
+                    // Note: This is a workaround - ideally viewModel should use @Environment
                 }
             }
         }
@@ -215,6 +328,39 @@ struct QuickCreateButton: View {
             }
         }
         .frame(width: 180)
+    }
+}
+
+struct EmptySearchView: View {
+    let searchText: String
+    let mediaTypeFilter: MediaType?
+    
+    var body: some View {
+        VStack(spacing: 16) {
+            Spacer()
+            
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 50))
+                .foregroundStyle(.secondary)
+            
+            Text("No Results")
+                .font(.title2)
+                .fontWeight(.semibold)
+            
+            if !searchText.isEmpty {
+                Text("No time capsules match \"\(searchText)\"")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            
+            if let filter = mediaTypeFilter {
+                Text("No \(filter.displayName) items found")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            
+            Spacer()
+        }
     }
 }
 

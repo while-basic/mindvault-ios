@@ -1,5 +1,6 @@
 // EditItemView.swift
 import SwiftUI
+import CoreData
 
 struct EditItemView: View {
     @Environment(\.dismiss) private var dismiss

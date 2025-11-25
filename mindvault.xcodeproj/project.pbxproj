@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD5ADE7C2ED54AB300F48307 /* EditItemView 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5ADE7B2ED54AB300F48307 /* EditItemView 2.swift */; };
 		DD9DD3B82ED53600007E1AD1 /* VaultGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3AF2ED53600007E1AD1 /* VaultGridView.swift */; };
 		DD9DD3B92ED53600007E1AD1 /* VaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3942ED53600007E1AD1 /* VaultViewModel.swift */; };
 		DD9DD3BA2ED53600007E1AD1 /* VideoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD39C2ED53600007E1AD1 /* VideoInputView.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD5ADE7B2ED54AB300F48307 /* EditItemView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditItemView 2.swift"; sourceTree = "<group>"; };
 		DD9DD36D2ED53568007E1AD1 /* mindvault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindvault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9DD37B2ED53600007E1AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD9DD37C2ED53600007E1AD1 /* MindVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindVaultApp.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				DD9DD3AF2ED53600007E1AD1 /* VaultGridView.swift */,
 				DD9DD3B02ED53600007E1AD1 /* VaultListView.swift */,
 				DD9DD3B12ED53600007E1AD1 /* VaultView.swift */,
+				DD5ADE7B2ED54AB300F48307 /* EditItemView 2.swift */,
 			);
 			path = Vault;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				DD9DD3DA2ED53600007E1AD1 /* MediaInputView.swift in Sources */,
 				DD9DD3DB2ED53600007E1AD1 /* VaultView.swift in Sources */,
 				DD9DD3DC2ED53600007E1AD1 /* TimeLockedItem+CoreDataClass.swift in Sources */,
+				DD5ADE7C2ED54AB300F48307 /* EditItemView 2.swift in Sources */,
 				DD9DD3DD2ED53600007E1AD1 /* ItemDetailViewModel.swift in Sources */,
 				DD9DD3DE2ED53600007E1AD1 /* MindVault.xcdatamodeld in Sources */,
 				DD9DD3DF2ED53600007E1AD1 /* MindVaultApp.swift in Sources */,

@@ -146,6 +146,10 @@ struct ItemDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .task {
             if item.unlockStatus == "unlocked" {
+                // Celebration haptic for unlock
+                let celebration = UIImpactFeedbackGenerator(style: .heavy)
+                celebration.impactOccurred()
+                
                 await viewModel.loadContent()
             }
         }

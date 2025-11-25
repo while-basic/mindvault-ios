@@ -21,7 +21,7 @@ class VaultViewModel: ObservableObject {
     @Published var showingDeleteConfirmation = false
     @Published var itemToDelete: TimeLockedItem?
     
-    private let context: NSManagedObjectContext
+    let context: NSManagedObjectContext
     private let storageService = StorageService.shared
     private let notificationService = NotificationService.shared
     

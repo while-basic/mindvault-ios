@@ -28,6 +28,7 @@ struct MediaTypeSelector: View {
                     MediaTypeCard(
                         mediaType: mediaType,
                         action: {
+                            // Light haptic for selection
                             let impact = UIImpactFeedbackGenerator(style: .light)
                             impact.impactOccurred()
                             
