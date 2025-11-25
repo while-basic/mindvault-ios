@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TimeLockedItem" representedClassName="TimeLockedItem" syncable="YES" codeGenerationType="none">
+        <attribute name="creationDate" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="customMessage" optional="YES" attributeType="String"/>
+        <attribute name="encryptedFilePath" optional="NO" attributeType="String"/>
+        <attribute name="iCloudBacked" optional="NO" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="mediaType" optional="NO" attributeType="String"/>
+        <attribute name="metadata" optional="YES" attributeType="Binary"/>
+        <attribute name="thumbnailPath" optional="YES" attributeType="String"/>
+        <attribute name="unlockDate" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="unlockStatus" optional="NO" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+</model>
+
