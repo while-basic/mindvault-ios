@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import UIKit
 
 struct ImageViewer: View {
     let image: UIImage
@@ -17,6 +18,7 @@ struct ImageViewer: View {
     @State private var lastScale: CGFloat = 1.0
     @State private var offset: CGSize = .zero
     @State private var lastOffset: CGSize = .zero
+    @State private var showingShareSheet = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -61,11 +63,27 @@ struct ImageViewer: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                ShareLink(item: image, preview: SharePreview("Image", image: image)) {
+                Button {
+                    showingShareSheet = true
+                } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
             }
         }
+        .sheet(isPresented: $showingShareSheet) {
+            ShareSheet(activityItems: [image])
+        }
+    }
+}
+
+struct ShareSheet: UIViewControllerRepresentable {
+    let activityItems: [Any]
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
     }
 }
 

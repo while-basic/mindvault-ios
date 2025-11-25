@@ -10,6 +10,8 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import Combine
+import CoreData
 import AVFoundation
 
 struct VoiceInputView: View {
@@ -26,7 +28,7 @@ struct VoiceInputView: View {
     var body: some View {
         Form {
             Section("Voice Memo") {
-                if let url = recordingURL {
+                if recordingURL != nil {
                     HStack {
                         Image(systemName: "waveform")
                             .font(.title2)

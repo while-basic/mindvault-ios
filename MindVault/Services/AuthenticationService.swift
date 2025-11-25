@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import Foundation
+import Combine
 import LocalAuthentication
 
 enum AuthenticationError: Error {

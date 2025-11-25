@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import Foundation
+import SwiftUI
 
 enum MediaType: String, CaseIterable, Codable {
     case text = "text"
@@ -41,6 +42,30 @@ enum MediaType: String, CaseIterable, Codable {
         case .audio: return "music.note"
         case .voice: return "mic"
         case .code: return "chevron.left.forwardslash.chevron.right"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .text: return .blue
+        case .url: return .purple
+        case .image: return .green
+        case .video: return .red
+        case .audio: return .orange
+        case .voice: return .pink
+        case .code: return .indigo
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .text: return "Notes & thoughts"
+        case .url: return "Web links"
+        case .image: return "Photos"
+        case .video: return "Videos"
+        case .audio: return "Music & audio"
+        case .voice: return "Voice memos"
+        case .code: return "Code snippets"
         }
     }
 }

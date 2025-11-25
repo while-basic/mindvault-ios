@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import Combine
 import AVFoundation
 
 struct AudioViewer: View {

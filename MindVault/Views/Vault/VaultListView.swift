@@ -14,19 +14,39 @@ import CoreData
 
 struct VaultListView: View {
     let items: FetchedResults<TimeLockedItem>
+    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
         List {
             ForEach(items) { item in
-                LockedItemRow(item: item)
+                NavigationLink {
+                    ItemDetailView(item: item)
+                } label: {
+                    LockedItemRow(item: item)
+                }
+                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                    Button(role: .destructive) {
+                        deleteItem(item)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
             }
         }
-        .listStyle(.plain)
+        .listStyle(.insetGrouped)
+        .scrollContentBackground(.hidden)
+    }
+    
+    private func deleteItem(_ item: TimeLockedItem) {
+        withAnimation {
+            viewContext.delete(item)
+            try? viewContext.save()
+        }
     }
 }
 
 #Preview {
-    VaultListView(items: FetchedResults<TimeLockedItem>())
+    VaultView()
         .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
 

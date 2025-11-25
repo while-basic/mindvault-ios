@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import CoreData
 
 struct MediaInputView: View {
     let mediaType: MediaType
@@ -25,38 +26,56 @@ struct MediaInputView: View {
     
     var body: some View {
         Form {
-            Section("Content") {
+            Section {
                 switch mediaType {
                 case .text:
                     TextEditor(text: $viewModel.textContent)
                         .frame(minHeight: 200)
+                        .scrollContentBackground(.hidden)
                 case .url:
                     TextField("Enter URL", text: $viewModel.urlContent)
                         .keyboardType(.URL)
                         .autocapitalization(.none)
+                        .textContentType(.URL)
                 default:
                     EmptyView()
                 }
+            } header: {
+                Label("Content", systemImage: mediaType.iconName)
             }
             
-            Section("Unlock Date & Time") {
+            Section {
                 DatePicker("Unlock Date", selection: $viewModel.unlockDate, in: Date()..., displayedComponents: [.date, .hourAndMinute])
                 
-                // Countdown preview
+                // Countdown preview with Liquid Glass
                 if viewModel.unlockDate > Date() {
                     let components = Calendar.current.dateComponents([.day, .hour, .minute], from: Date(), to: viewModel.unlockDate)
                     if let days = components.day, let hours = components.hour, let minutes = components.minute {
-                        Text("Unlocks in \(days)d \(hours)h \(minutes)m")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                        HStack {
+                            Image(systemName: "clock.fill")
+                                .foregroundStyle(.tint)
+                            Text("Unlocks in \(days)d \(hours)h \(minutes)m")
+                                .font(.subheadline)
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .background {
+                            Capsule()
+                                .fill(.ultraThinMaterial)
+                        }
                     }
                 }
+            } header: {
+                Label("Unlock Date & Time", systemImage: "calendar")
             }
             
-            Section("Optional") {
+            Section {
                 TextField("Custom unlock message", text: $viewModel.customMessage)
+            } header: {
+                Label("Optional", systemImage: "ellipsis.circle")
             }
         }
+        .scrollContentBackground(.hidden)
         .navigationTitle(mediaType.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -67,12 +86,22 @@ struct MediaInputView: View {
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Lock It") {
+                Button {
+                    let impact = UIImpactFeedbackGenerator(style: .medium)
+                    impact.impactOccurred()
+                    
                     Task {
                         await saveItem()
                     }
+                } label: {
+                    if viewModel.isSaving {
+                        ProgressView()
+                    } else {
+                        Label("Lock It", systemImage: "lock.fill")
+                    }
                 }
                 .disabled(isContentEmpty || viewModel.isSaving)
+                .fontWeight(.semibold)
             }
         }
         .alert("Error", isPresented: $showingError) {
@@ -115,8 +144,7 @@ struct MediaInputView: View {
 
 #Preview {
     NavigationStack {
-        MediaInputView(mediaType: .text)
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        MediaInputView(mediaType: MediaType.text, context: PersistenceController.preview.container.viewContext)
     }
 }
 

@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import CoreData
 import UniformTypeIdentifiers
 
 struct CodeInputView: View {

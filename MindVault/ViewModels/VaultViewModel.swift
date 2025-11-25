@@ -10,8 +10,9 @@
 //----------------------------------------------------------------------------
 
 import Foundation
-import CoreData
 import SwiftUI
+import Combine
+import CoreData
 
 @MainActor
 class VaultViewModel: ObservableObject {

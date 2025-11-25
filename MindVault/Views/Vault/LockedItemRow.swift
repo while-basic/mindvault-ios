@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import Combine
 import CoreData
 
 struct LockedItemRow: View {
@@ -17,33 +18,44 @@ struct LockedItemRow: View {
     @State private var timeRemaining: String = ""
     
     var body: some View {
-        HStack(spacing: 12) {
-            // Media type icon
+        HStack(spacing: 16) {
+            // Media type icon with Liquid Glass
             if let mediaType = MediaType(rawValue: item.mediaType) {
-                Image(systemName: mediaType.iconName)
-                    .font(.title2)
-                    .foregroundColor(.secondary)
-                    .frame(width: 40, height: 40)
-                    .background(Color.secondary.opacity(0.1))
-                    .cornerRadius(8)
+                ZStack {
+                    Circle()
+                        .fill(mediaType.color.opacity(0.15))
+                        .frame(width: 48, height: 48)
+                    
+                    Image(systemName: mediaType.iconName)
+                        .font(.system(size: 20, weight: .medium))
+                        .foregroundStyle(mediaType.color.gradient)
+                }
             }
             
-            VStack(alignment: .leading, spacing: 4) {
-                Text(mediaTypeDisplayName)
-                    .font(.headline)
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(spacing: 8) {
+                    Text(mediaTypeDisplayName)
+                        .font(.headline)
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 4) {
+                        Image(systemName: "clock.fill")
+                            .font(.caption2)
+                            .foregroundStyle(.tint)
+                        
+                        Text(timeRemaining)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
                 
-                Text(timeRemaining)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                Text(item.unlockDate, style: .date)
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
             }
-            
-            Spacer()
-            
-            Text(item.unlockDate, style: .date)
-                .font(.caption)
-                .foregroundColor(.secondary)
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, 4)
         .onAppear {
             updateCountdown()
         }
@@ -64,11 +76,11 @@ struct LockedItemRow: View {
             let components = Calendar.current.dateComponents([.day, .hour, .minute], from: now, to: unlockDate)
             if let days = components.day, let hours = components.hour, let minutes = components.minute {
                 if days > 0 {
-                    timeRemaining = "\(days) days, \(hours) hours"
+                    timeRemaining = "\(days)d \(hours)h"
                 } else if hours > 0 {
-                    timeRemaining = "\(hours) hours, \(minutes) minutes"
+                    timeRemaining = "\(hours)h \(minutes)m"
                 } else {
-                    timeRemaining = "\(minutes) minutes"
+                    timeRemaining = "\(minutes)m"
                 }
             }
         } else {
@@ -78,17 +90,20 @@ struct LockedItemRow: View {
 }
 
 #Preview {
-    let context = PersistenceController.preview.container.viewContext
-    let item = TimeLockedItem(context: context)
-    item.id = UUID()
-    item.mediaType = "text"
-    item.creationDate = Date()
-    item.unlockDate = Date().addingTimeInterval(86400 * 2) // 2 days from now
-    item.unlockStatus = "locked"
-    item.encryptedFilePath = "/test/path"
-    item.iCloudBacked = false
+    let item: TimeLockedItem = {
+        let context = PersistenceController.preview.container.viewContext
+        let i = TimeLockedItem(context: context)
+        i.id = UUID()
+        i.mediaType = "text"
+        i.creationDate = Date()
+        i.unlockDate = Date().addingTimeInterval(86400 * 2)
+        i.unlockStatus = "locked"
+        i.encryptedFilePath = "/test/path"
+        i.iCloudBacked = false
+        return i
+    }()
     
-    return LockedItemRow(item: item)
+    LockedItemRow(item: item)
         .padding()
 }
 

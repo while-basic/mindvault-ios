@@ -10,9 +10,10 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import LocalAuthentication
 
 struct AuthenticationView: View {
-    @StateObject private var authService = AuthenticationService.shared
+    @ObservedObject private var authService = AuthenticationService.shared
     @State private var isAuthenticating = false
     @State private var errorMessage: String?
     @State private var showingError = false
@@ -41,7 +42,7 @@ struct AuthenticationView: View {
                 authenticate()
             } label: {
                 HStack {
-                    Image(systemName: authService.biometricType == .faceID ? "faceid" : "touchid")
+                    Image(systemName: authService.biometricType == LABiometryType.faceID ? "faceid" : "touchid")
                     Text("Authenticate")
                 }
                 .font(.headline)
@@ -75,9 +76,10 @@ struct AuthenticationView: View {
         isAuthenticating = true
         errorMessage = nil
         
-        Task {
+        let service = authService
+        Task { @MainActor in
             do {
-                try await authService.authenticate(reason: "Authenticate to access your time capsules")
+                try await service.authenticate(reason: "Authenticate to access your time capsules")
                 isAuthenticating = false
             } catch {
                 isAuthenticating = false

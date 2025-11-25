@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import CoreData
 import PhotosUI
 import AVKit
 

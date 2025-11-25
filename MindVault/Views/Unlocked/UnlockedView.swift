@@ -23,20 +23,41 @@ struct UnlockedView: View {
     var body: some View {
         NavigationStack {
             if items.isEmpty {
-                VStack(spacing: 16) {
-                    Image(systemName: "lock.open")
-                        .font(.system(size: 60))
-                        .foregroundColor(.secondary)
-                    Text("No unlocked items yet")
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                    Text("Your locked items will appear here when they unlock")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
+                VStack(spacing: 24) {
+                    Spacer()
+                    
+                    ZStack {
+                        Circle()
+                            .fill(.ultraThinMaterial)
+                            .frame(width: 120, height: 120)
+                        
+                        Image(systemName: "lock.open.fill")
+                            .font(.system(size: 50))
+                            .foregroundStyle(
+                                LinearGradient(
+                                    colors: [.blue, .purple],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    }
+                    
+                    VStack(spacing: 8) {
+                        Text("No Unlocked Items")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        
+                        Text("Your locked items will appear here when they unlock")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 40)
+                    }
+                    
+                    Spacer()
                 }
-                .padding()
                 .navigationTitle("Unlocked")
+                .navigationBarTitleDisplayMode(.large)
             } else {
                 List {
                     ForEach(items) { item in
@@ -47,7 +68,10 @@ struct UnlockedView: View {
                         }
                     }
                 }
+                .listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
                 .navigationTitle("Unlocked")
+                .navigationBarTitleDisplayMode(.large)
             }
         }
     }
@@ -57,23 +81,32 @@ struct UnlockedItemRow: View {
     let item: TimeLockedItem
     
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 16) {
             if let mediaType = MediaType(rawValue: item.mediaType) {
-                Image(systemName: mediaType.iconName)
-                    .font(.title2)
-                    .foregroundColor(.primary)
-                    .frame(width: 40, height: 40)
-                    .background(Color.secondary.opacity(0.1))
-                    .cornerRadius(8)
+                ZStack {
+                    Circle()
+                        .fill(mediaType.color.opacity(0.15))
+                        .frame(width: 48, height: 48)
+                    
+                    Image(systemName: mediaType.iconName)
+                        .font(.system(size: 20, weight: .medium))
+                        .foregroundStyle(mediaType.color.gradient)
+                }
             }
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 6) {
                 Text(mediaTypeDisplayName)
                     .font(.headline)
                 
-                Text("Unlocked \(item.unlockDate, style: .relative)")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                HStack(spacing: 4) {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.caption2)
+                        .foregroundStyle(.green)
+                    
+                    Text("Unlocked \(item.unlockDate, style: .relative)")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
             }
             
             Spacer()

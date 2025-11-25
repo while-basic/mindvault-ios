@@ -6,17 +6,97 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DD9DD3B82ED53600007E1AD1 /* VaultGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3AF2ED53600007E1AD1 /* VaultGridView.swift */; };
+		DD9DD3B92ED53600007E1AD1 /* VaultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3942ED53600007E1AD1 /* VaultViewModel.swift */; };
+		DD9DD3BA2ED53600007E1AD1 /* VideoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD39C2ED53600007E1AD1 /* VideoInputView.swift */; };
+		DD9DD3BB2ED53600007E1AD1 /* TimeLockedItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3812ED53600007E1AD1 /* TimeLockedItem+CoreDataProperties.swift */; };
+		DD9DD3BC2ED53600007E1AD1 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3872ED53600007E1AD1 /* AuthenticationService.swift */; };
+		DD9DD3BD2ED53600007E1AD1 /* URLViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3A32ED53600007E1AD1 /* URLViewer.swift */; };
+		DD9DD3BE2ED53600007E1AD1 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3902ED53600007E1AD1 /* KeychainManager.swift */; };
+		DD9DD3BF2ED53600007E1AD1 /* LockedItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3AD2ED53600007E1AD1 /* LockedItemCard.swift */; };
+		DD9DD3C02ED53600007E1AD1 /* ImageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3992ED53600007E1AD1 /* ImageInputView.swift */; };
+		DD9DD3C12ED53600007E1AD1 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3972ED53600007E1AD1 /* CodeInputView.swift */; };
+		DD9DD3C22ED53600007E1AD1 /* VaultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3B02ED53600007E1AD1 /* VaultListView.swift */; };
+		DD9DD3C32ED53600007E1AD1 /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3A12ED53600007E1AD1 /* ImageViewer.swift */; };
+		DD9DD3C42ED53600007E1AD1 /* VoiceInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD39D2ED53600007E1AD1 /* VoiceInputView.swift */; };
+		DD9DD3C52ED53600007E1AD1 /* CreateItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3982ED53600007E1AD1 /* CreateItemView.swift */; };
+		DD9DD3C62ED53600007E1AD1 /* AudioViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD39F2ED53600007E1AD1 /* AudioViewer.swift */; };
+		DD9DD3C72ED53600007E1AD1 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3B32ED53600007E1AD1 /* AuthenticationView.swift */; };
+		DD9DD3C82ED53600007E1AD1 /* AudioInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3962ED53600007E1AD1 /* AudioInputView.swift */; };
+		DD9DD3C92ED53600007E1AD1 /* UnlockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3AB2ED53600007E1AD1 /* UnlockedView.swift */; };
+		DD9DD3CA2ED53600007E1AD1 /* CodeViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3A02ED53600007E1AD1 /* CodeViewer.swift */; };
+		DD9DD3CB2ED53600007E1AD1 /* EncryptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3882ED53600007E1AD1 /* EncryptionService.swift */; };
+		DD9DD3CC2ED53600007E1AD1 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD37F2ED53600007E1AD1 /* PersistenceController.swift */; };
+		DD9DD3CD2ED53600007E1AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD37B2ED53600007E1AD1 /* AppDelegate.swift */; };
+		DD9DD3CE2ED53600007E1AD1 /* LockedItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3AE2ED53600007E1AD1 /* LockedItemRow.swift */; };
+		DD9DD3CF2ED53600007E1AD1 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD38A2ED53600007E1AD1 /* StorageService.swift */; };
+		DD9DD3D02ED53600007E1AD1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3892ED53600007E1AD1 /* NotificationService.swift */; };
+		DD9DD3D12ED53600007E1AD1 /* UnlockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3822ED53600007E1AD1 /* UnlockStatus.swift */; };
+		DD9DD3D22ED53600007E1AD1 /* CreateItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3922ED53600007E1AD1 /* CreateItemViewModel.swift */; };
+		DD9DD3D32ED53600007E1AD1 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3A62ED53600007E1AD1 /* ItemDetailView.swift */; };
+		DD9DD3D42ED53600007E1AD1 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD38E2ED53600007E1AD1 /* Date+Extensions.swift */; };
+		DD9DD3D52ED53600007E1AD1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3A92ED53600007E1AD1 /* SettingsView.swift */; };
+		DD9DD3D62ED53600007E1AD1 /* UnlockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD38B2ED53600007E1AD1 /* UnlockService.swift */; };
+		DD9DD3D72ED53600007E1AD1 /* VideoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3A42ED53600007E1AD1 /* VideoViewer.swift */; };
+		DD9DD3D82ED53600007E1AD1 /* MediaTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD39B2ED53600007E1AD1 /* MediaTypeSelector.swift */; };
+		DD9DD3D92ED53600007E1AD1 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD37E2ED53600007E1AD1 /* MediaType.swift */; };
+		DD9DD3DA2ED53600007E1AD1 /* MediaInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD39A2ED53600007E1AD1 /* MediaInputView.swift */; };
+		DD9DD3DB2ED53600007E1AD1 /* VaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3B12ED53600007E1AD1 /* VaultView.swift */; };
+		DD9DD3DC2ED53600007E1AD1 /* TimeLockedItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3802ED53600007E1AD1 /* TimeLockedItem+CoreDataClass.swift */; };
+		DD9DD3DD2ED53600007E1AD1 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3932ED53600007E1AD1 /* ItemDetailViewModel.swift */; };
+		DD9DD3DE2ED53600007E1AD1 /* MindVault.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3852ED53600007E1AD1 /* MindVault.xcdatamodeld */; };
+		DD9DD3DF2ED53600007E1AD1 /* MindVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD37C2ED53600007E1AD1 /* MindVaultApp.swift */; };
+		DD9DD3E02ED53600007E1AD1 /* TextViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3A22ED53600007E1AD1 /* TextViewer.swift */; };
+		DD9DD3E22ED53DA3007E1AD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DD3E12ED53DA3007E1AD1 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DD9DD36D2ED53568007E1AD1 /* mindvault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindvault.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9DD37B2ED53600007E1AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD9DD37C2ED53600007E1AD1 /* MindVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindVaultApp.swift; sourceTree = "<group>"; };
+		DD9DD37E2ED53600007E1AD1 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		DD9DD37F2ED53600007E1AD1 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		DD9DD3802ED53600007E1AD1 /* TimeLockedItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeLockedItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DD9DD3812ED53600007E1AD1 /* TimeLockedItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeLockedItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD9DD3822ED53600007E1AD1 /* UnlockStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockStatus.swift; sourceTree = "<group>"; };
+		DD9DD3842ED53600007E1AD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD9DD3872ED53600007E1AD1 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		DD9DD3882ED53600007E1AD1 /* EncryptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionService.swift; sourceTree = "<group>"; };
+		DD9DD3892ED53600007E1AD1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		DD9DD38A2ED53600007E1AD1 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		DD9DD38B2ED53600007E1AD1 /* UnlockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockService.swift; sourceTree = "<group>"; };
+		DD9DD38E2ED53600007E1AD1 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		DD9DD3902ED53600007E1AD1 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		DD9DD3922ED53600007E1AD1 /* CreateItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemViewModel.swift; sourceTree = "<group>"; };
+		DD9DD3932ED53600007E1AD1 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
+		DD9DD3942ED53600007E1AD1 /* VaultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultViewModel.swift; sourceTree = "<group>"; };
+		DD9DD3962ED53600007E1AD1 /* AudioInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInputView.swift; sourceTree = "<group>"; };
+		DD9DD3972ED53600007E1AD1 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
+		DD9DD3982ED53600007E1AD1 /* CreateItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemView.swift; sourceTree = "<group>"; };
+		DD9DD3992ED53600007E1AD1 /* ImageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputView.swift; sourceTree = "<group>"; };
+		DD9DD39A2ED53600007E1AD1 /* MediaInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaInputView.swift; sourceTree = "<group>"; };
+		DD9DD39B2ED53600007E1AD1 /* MediaTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypeSelector.swift; sourceTree = "<group>"; };
+		DD9DD39C2ED53600007E1AD1 /* VideoInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInputView.swift; sourceTree = "<group>"; };
+		DD9DD39D2ED53600007E1AD1 /* VoiceInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputView.swift; sourceTree = "<group>"; };
+		DD9DD39F2ED53600007E1AD1 /* AudioViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewer.swift; sourceTree = "<group>"; };
+		DD9DD3A02ED53600007E1AD1 /* CodeViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewer.swift; sourceTree = "<group>"; };
+		DD9DD3A12ED53600007E1AD1 /* ImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
+		DD9DD3A22ED53600007E1AD1 /* TextViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewer.swift; sourceTree = "<group>"; };
+		DD9DD3A32ED53600007E1AD1 /* URLViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewer.swift; sourceTree = "<group>"; };
+		DD9DD3A42ED53600007E1AD1 /* VideoViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewer.swift; sourceTree = "<group>"; };
+		DD9DD3A62ED53600007E1AD1 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		DD9DD3A92ED53600007E1AD1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DD9DD3AB2ED53600007E1AD1 /* UnlockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockedView.swift; sourceTree = "<group>"; };
+		DD9DD3AD2ED53600007E1AD1 /* LockedItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedItemCard.swift; sourceTree = "<group>"; };
+		DD9DD3AE2ED53600007E1AD1 /* LockedItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedItemRow.swift; sourceTree = "<group>"; };
+		DD9DD3AF2ED53600007E1AD1 /* VaultGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultGridView.swift; sourceTree = "<group>"; };
+		DD9DD3B02ED53600007E1AD1 /* VaultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultListView.swift; sourceTree = "<group>"; };
+		DD9DD3B12ED53600007E1AD1 /* VaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultView.swift; sourceTree = "<group>"; };
+		DD9DD3B32ED53600007E1AD1 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		DD9DD3B62ED53600007E1AD1 /* MindVault.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MindVault.xcdatamodel; sourceTree = "<group>"; };
+		DD9DD3E12ED53DA3007E1AD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		DD9DD36F2ED53568007E1AD1 /* mindvault */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = mindvault;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DD9DD36A2ED53568007E1AD1 /* Frameworks */ = {
@@ -32,7 +112,7 @@
 		DD9DD3642ED53568007E1AD1 = {
 			isa = PBXGroup;
 			children = (
-				DD9DD36F2ED53568007E1AD1 /* mindvault */,
+				DD9DD3B52ED53600007E1AD1 /* MindVault */,
 				DD9DD36E2ED53568007E1AD1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +123,184 @@
 				DD9DD36D2ED53568007E1AD1 /* mindvault.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DD9DD37D2ED53600007E1AD1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD37B2ED53600007E1AD1 /* AppDelegate.swift */,
+				DD9DD37C2ED53600007E1AD1 /* MindVaultApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DD9DD3832ED53600007E1AD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD37E2ED53600007E1AD1 /* MediaType.swift */,
+				DD9DD37F2ED53600007E1AD1 /* PersistenceController.swift */,
+				DD9DD3802ED53600007E1AD1 /* TimeLockedItem+CoreDataClass.swift */,
+				DD9DD3812ED53600007E1AD1 /* TimeLockedItem+CoreDataProperties.swift */,
+				DD9DD3822ED53600007E1AD1 /* UnlockStatus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD9DD3862ED53600007E1AD1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD3842ED53600007E1AD1 /* Info.plist */,
+				DD9DD3852ED53600007E1AD1 /* MindVault.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD9DD38C2ED53600007E1AD1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD3872ED53600007E1AD1 /* AuthenticationService.swift */,
+				DD9DD3882ED53600007E1AD1 /* EncryptionService.swift */,
+				DD9DD3892ED53600007E1AD1 /* NotificationService.swift */,
+				DD9DD38A2ED53600007E1AD1 /* StorageService.swift */,
+				DD9DD38B2ED53600007E1AD1 /* UnlockService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DD9DD38D2ED53600007E1AD1 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		DD9DD38F2ED53600007E1AD1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD38E2ED53600007E1AD1 /* Date+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD9DD3912ED53600007E1AD1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD38F2ED53600007E1AD1 /* Extensions */,
+				DD9DD3902ED53600007E1AD1 /* KeychainManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DD9DD3952ED53600007E1AD1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD3E12ED53DA3007E1AD1 /* ContentView.swift */,
+				DD9DD3922ED53600007E1AD1 /* CreateItemViewModel.swift */,
+				DD9DD3932ED53600007E1AD1 /* ItemDetailViewModel.swift */,
+				DD9DD3942ED53600007E1AD1 /* VaultViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DD9DD39E2ED53600007E1AD1 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD3962ED53600007E1AD1 /* AudioInputView.swift */,
+				DD9DD3972ED53600007E1AD1 /* CodeInputView.swift */,
+				DD9DD3982ED53600007E1AD1 /* CreateItemView.swift */,
+				DD9DD3992ED53600007E1AD1 /* ImageInputView.swift */,
+				DD9DD39A2ED53600007E1AD1 /* MediaInputView.swift */,
+				DD9DD39B2ED53600007E1AD1 /* MediaTypeSelector.swift */,
+				DD9DD39C2ED53600007E1AD1 /* VideoInputView.swift */,
+				DD9DD39D2ED53600007E1AD1 /* VoiceInputView.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		DD9DD3A52ED53600007E1AD1 /* MediaViewer */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD39F2ED53600007E1AD1 /* AudioViewer.swift */,
+				DD9DD3A02ED53600007E1AD1 /* CodeViewer.swift */,
+				DD9DD3A12ED53600007E1AD1 /* ImageViewer.swift */,
+				DD9DD3A22ED53600007E1AD1 /* TextViewer.swift */,
+				DD9DD3A32ED53600007E1AD1 /* URLViewer.swift */,
+				DD9DD3A42ED53600007E1AD1 /* VideoViewer.swift */,
+			);
+			path = MediaViewer;
+			sourceTree = "<group>";
+		};
+		DD9DD3A72ED53600007E1AD1 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD3A52ED53600007E1AD1 /* MediaViewer */,
+				DD9DD3A62ED53600007E1AD1 /* ItemDetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		DD9DD3A82ED53600007E1AD1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DD9DD3AA2ED53600007E1AD1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD3A92ED53600007E1AD1 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DD9DD3AC2ED53600007E1AD1 /* Unlocked */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD3AB2ED53600007E1AD1 /* UnlockedView.swift */,
+			);
+			path = Unlocked;
+			sourceTree = "<group>";
+		};
+		DD9DD3B22ED53600007E1AD1 /* Vault */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD3AD2ED53600007E1AD1 /* LockedItemCard.swift */,
+				DD9DD3AE2ED53600007E1AD1 /* LockedItemRow.swift */,
+				DD9DD3AF2ED53600007E1AD1 /* VaultGridView.swift */,
+				DD9DD3B02ED53600007E1AD1 /* VaultListView.swift */,
+				DD9DD3B12ED53600007E1AD1 /* VaultView.swift */,
+			);
+			path = Vault;
+			sourceTree = "<group>";
+		};
+		DD9DD3B42ED53600007E1AD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD39E2ED53600007E1AD1 /* Create */,
+				DD9DD3A72ED53600007E1AD1 /* Detail */,
+				DD9DD3A82ED53600007E1AD1 /* Onboarding */,
+				DD9DD3AA2ED53600007E1AD1 /* Settings */,
+				DD9DD3AC2ED53600007E1AD1 /* Unlocked */,
+				DD9DD3B22ED53600007E1AD1 /* Vault */,
+				DD9DD3B32ED53600007E1AD1 /* AuthenticationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD9DD3B52ED53600007E1AD1 /* MindVault */ = {
+			isa = PBXGroup;
+			children = (
+				DD9DD37D2ED53600007E1AD1 /* App */,
+				DD9DD3832ED53600007E1AD1 /* Models */,
+				DD9DD3862ED53600007E1AD1 /* Resources */,
+				DD9DD38C2ED53600007E1AD1 /* Services */,
+				DD9DD38D2ED53600007E1AD1 /* Tests */,
+				DD9DD3912ED53600007E1AD1 /* Utilities */,
+				DD9DD3952ED53600007E1AD1 /* ViewModels */,
+				DD9DD3B42ED53600007E1AD1 /* Views */,
+			);
+			path = MindVault;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +317,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				DD9DD36F2ED53568007E1AD1 /* mindvault */,
 			);
 			name = mindvault;
 			packageProductDependencies = (
@@ -119,6 +374,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD9DD3B82ED53600007E1AD1 /* VaultGridView.swift in Sources */,
+				DD9DD3B92ED53600007E1AD1 /* VaultViewModel.swift in Sources */,
+				DD9DD3E22ED53DA3007E1AD1 /* ContentView.swift in Sources */,
+				DD9DD3BA2ED53600007E1AD1 /* VideoInputView.swift in Sources */,
+				DD9DD3BB2ED53600007E1AD1 /* TimeLockedItem+CoreDataProperties.swift in Sources */,
+				DD9DD3BC2ED53600007E1AD1 /* AuthenticationService.swift in Sources */,
+				DD9DD3BD2ED53600007E1AD1 /* URLViewer.swift in Sources */,
+				DD9DD3BE2ED53600007E1AD1 /* KeychainManager.swift in Sources */,
+				DD9DD3BF2ED53600007E1AD1 /* LockedItemCard.swift in Sources */,
+				DD9DD3C02ED53600007E1AD1 /* ImageInputView.swift in Sources */,
+				DD9DD3C12ED53600007E1AD1 /* CodeInputView.swift in Sources */,
+				DD9DD3C22ED53600007E1AD1 /* VaultListView.swift in Sources */,
+				DD9DD3C32ED53600007E1AD1 /* ImageViewer.swift in Sources */,
+				DD9DD3C42ED53600007E1AD1 /* VoiceInputView.swift in Sources */,
+				DD9DD3C52ED53600007E1AD1 /* CreateItemView.swift in Sources */,
+				DD9DD3C62ED53600007E1AD1 /* AudioViewer.swift in Sources */,
+				DD9DD3C72ED53600007E1AD1 /* AuthenticationView.swift in Sources */,
+				DD9DD3C82ED53600007E1AD1 /* AudioInputView.swift in Sources */,
+				DD9DD3C92ED53600007E1AD1 /* UnlockedView.swift in Sources */,
+				DD9DD3CA2ED53600007E1AD1 /* CodeViewer.swift in Sources */,
+				DD9DD3CB2ED53600007E1AD1 /* EncryptionService.swift in Sources */,
+				DD9DD3CC2ED53600007E1AD1 /* PersistenceController.swift in Sources */,
+				DD9DD3CD2ED53600007E1AD1 /* AppDelegate.swift in Sources */,
+				DD9DD3CE2ED53600007E1AD1 /* LockedItemRow.swift in Sources */,
+				DD9DD3CF2ED53600007E1AD1 /* StorageService.swift in Sources */,
+				DD9DD3D02ED53600007E1AD1 /* NotificationService.swift in Sources */,
+				DD9DD3D12ED53600007E1AD1 /* UnlockStatus.swift in Sources */,
+				DD9DD3D22ED53600007E1AD1 /* CreateItemViewModel.swift in Sources */,
+				DD9DD3D32ED53600007E1AD1 /* ItemDetailView.swift in Sources */,
+				DD9DD3D42ED53600007E1AD1 /* Date+Extensions.swift in Sources */,
+				DD9DD3D52ED53600007E1AD1 /* SettingsView.swift in Sources */,
+				DD9DD3D62ED53600007E1AD1 /* UnlockService.swift in Sources */,
+				DD9DD3D72ED53600007E1AD1 /* VideoViewer.swift in Sources */,
+				DD9DD3D82ED53600007E1AD1 /* MediaTypeSelector.swift in Sources */,
+				DD9DD3D92ED53600007E1AD1 /* MediaType.swift in Sources */,
+				DD9DD3DA2ED53600007E1AD1 /* MediaInputView.swift in Sources */,
+				DD9DD3DB2ED53600007E1AD1 /* VaultView.swift in Sources */,
+				DD9DD3DC2ED53600007E1AD1 /* TimeLockedItem+CoreDataClass.swift in Sources */,
+				DD9DD3DD2ED53600007E1AD1 /* ItemDetailViewModel.swift in Sources */,
+				DD9DD3DE2ED53600007E1AD1 /* MindVault.xcdatamodeld in Sources */,
+				DD9DD3DF2ED53600007E1AD1 /* MindVaultApp.swift in Sources */,
+				DD9DD3E02ED53600007E1AD1 /* TextViewer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +552,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = APHMV4Q24X;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MindVault/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -287,7 +585,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = APHMV4Q24X;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MindVault/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +631,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD9DD3852ED53600007E1AD1 /* MindVault.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD9DD3B62ED53600007E1AD1 /* MindVault.xcdatamodel */,
+			);
+			currentVersion = DD9DD3B62ED53600007E1AD1 /* MindVault.xcdatamodel */;
+			path = MindVault.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD9DD3652ED53568007E1AD1 /* Project object */;
 }

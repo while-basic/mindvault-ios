@@ -18,26 +18,41 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Security") {
+                Section {
                     Toggle("Biometric Authentication", isOn: $biometricEnabled)
+                } header: {
+                    Label("Security", systemImage: "lock.shield.fill")
+                } footer: {
+                    Text("Require Face ID or Touch ID to access your vault")
                 }
                 
-                Section("Backup") {
+                Section {
                     Toggle("iCloud Backup", isOn: $iCloudBackupEnabled)
+                } header: {
+                    Label("Backup", systemImage: "icloud.fill")
+                } footer: {
+                    Text("Sync your time capsules across all your devices")
                 }
                 
-                Section("About") {
+                Section {
                     HStack {
-                        Text("Version")
+                        Label("Version", systemImage: "info.circle.fill")
                         Spacer()
                         Text("1.0.0")
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     
-                    Link("Privacy Policy", destination: URL(string: "https://mindvault.app/privacy")!)
+                    Link(destination: URL(string: "https://mindvault.app/privacy")!) {
+                        Label("Privacy Policy", systemImage: "hand.raised.fill")
+                    }
+                } header: {
+                    Label("About", systemImage: "info.circle")
                 }
             }
+            .listStyle(.insetGrouped)
+            .scrollContentBackground(.hidden)
             .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }

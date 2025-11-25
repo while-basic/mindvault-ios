@@ -10,7 +10,9 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import CoreData
 import UniformTypeIdentifiers
+import AVFoundation
 
 struct AudioInputView: View {
     @Environment(\.dismiss) private var dismiss
@@ -90,7 +92,7 @@ struct AudioInputView: View {
         }
         .fileImporter(
             isPresented: $showingDocumentPicker,
-            allowedContentTypes: [.audio, .mp3, .m4a, .wav],
+            allowedContentTypes: [.audio],
             allowsMultipleSelection: false
         ) { result in
             if let urls = try? result.get(), let url = urls.first {

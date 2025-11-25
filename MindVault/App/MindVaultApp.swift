@@ -10,6 +10,7 @@
 //----------------------------------------------------------------------------
 
 import SwiftUI
+import CoreData
 
 @main
 struct MindVaultApp: App {
@@ -18,8 +19,9 @@ struct MindVaultApp: App {
     
     init() {
         // Process any unlocks on app launch
+        let context = PersistenceController.shared.container.viewContext
         Task {
-            await UnlockService.shared.processUnlocks(context: persistenceController.container.viewContext)
+            await UnlockService.shared.processUnlocks(context: context)
         }
     }
     

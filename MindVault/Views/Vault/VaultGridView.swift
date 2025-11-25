@@ -28,11 +28,12 @@ struct VaultGridView: View {
             }
             .padding()
         }
+        .scrollContentBackground(.hidden)
     }
 }
 
 #Preview {
-    VaultGridView(items: FetchedResults<TimeLockedItem>())
+    VaultView()
         .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
 
